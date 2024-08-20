@@ -1,56 +1,387 @@
 :root {
     --colorHead: #666666;
     --colorHeadBlue: #008ecc;
+    --colorBgInput: #f3f9fb;
+    --colorBorderRight: rgb(189, 189, 189);
+    --colorHeadTop: #f5f5f5;
+    --colorMainSec:#212844;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-/* header css start */
-* header {
-    display: flex;
-    flex-direction: column;
-    padding: 0px 100px;
-}
-* header .headTop {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 60px;
-    color: var(--colorHead);
     font-family: "Hanken Grotesk", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
 }
-* header .headTop .headTopRight {
+
+/* / header css start / */
+header {
+    display: flex;
+    flex-direction: column;
+}
+header .headTop .headerTopConta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: var(--colorHead);
+    font-family: "Hanken Grotesk", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    background-color: var(--colorHeadTop);
+    padding: 20px 100px;
+    flex-wrap: wrap;
+}
+header .headTop .headerTopConta .headTopRight {
     display: flex;
     align-items: center;
     column-gap: 25px;
 }
-* header .headTop .headTopRight > div {
+header .headTop .headerTopConta .headTopRight > div {
     display: flex;
     align-items: center;
     column-gap: 5px;
 }
-* header .headTop .headTopRight > div:nth-child(1) {
+header .headTop .headerTopConta .headTopRight > div:nth-child(1) {
     border-right: 2px solid rgb(185, 185, 185);
     padding-right: 20px;
 }
-* header .headTop .headTopRight > div:nth-child(2) {
+header .headTop .headerTopConta .headTopRight > div:nth-child(2) {
     border-right: 2px solid rgb(189, 189, 189);
     padding-right: 20px;
 }
 
-* header .headBottom {
+header .headBottom {
     display: flex;
     justify-content: space-between;
+    padding: 20px 100px;
 }
-* header .headBottom .headBottomLeft {
+header .headBottom .headBottomLeft {
     display: flex;
     align-items: center;
     gap: 10px;
+    cursor: pointer;
 }
 
-/* header css end */
+header .headBottom .headBottomLeft h1 {
+    color: var(--colorHeadBlue);
+}
+header .headBottom .headBottomRightMobile {
+    background-color: rgb(30, 30, 30);
+    position: absolute;
+    left: -200%;
+    top: 0;
+    height: 100vh;
+    transition: 0.7s all;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    width: 100vw;
+}
+header .headBottom .headBottomRightMobile div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    background-color: var(--colorBgInput);
+    width: 300px;
+    padding: 7px 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+header .headBottom .headBottomRight {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+header .headBottom .headBottomRight div:nth-child(1) {
+    display: flex;
+    align-items: center;
+    background-color: var(--colorBgInput);
+    width: 25vw;
+    padding: 7px 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+header .headBottom .headBottomRight div:nth-child(1) input {
+    border: none;
+    width: 20vw;
+    background-color: transparent;
+    outline: none;
+}
+header .headBottom .headBottomRightMobile div:nth-child(1) input {
+    border: none;
+    width: 20vw;
+    background-color: transparent;
+    outline: none;
+}
+header .headBottom .headBottomRight div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    border-right: 2px solid var(--colorBorderRight);
+    padding-right: 15px;
+}
+header .headBottom .headBottomRightMobile div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+    border-right: 2px solid var(--colorBorderRight);
+    padding-right: 15px;
+}
+header .headBottom .headBottomRight div:nth-child(1):nth-child(1) {
+    cursor: pointer;
+}
+header .headBottom .headBottomRight div:nth-child(3) {
+    cursor: pointer;
+}
+header .headBottom .headBottomRight div:nth-child(2) {
+    cursor: pointer;
+}
+header .headBottom .headBottomRight div:nth-child(1):nth-child(3) {
+    cursor: pointer;
+}
+header .headBottom .headBottomRight div:nth-child(3) {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+header .headBottom .headBottomRightMobile div:nth-child(3) {
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+
+.contaBurgerMenu {
+    display: none;
+}
+.contaBurgerMenu .burger-checkbox {
+    position: absolute;
+    visibility: hidden;
+}
+.contaBurgerMenu .burger {
+    cursor: pointer;
+    display: block;
+    position: relative;
+    border: none;
+    background: transparent;
+    width: 40px;
+    height: 26px;
+    margin: 30px auto;
+}
+.contaBurgerMenu .burger::before,
+.contaBurgerMenu .burger::after {
+    content: "";
+    z-index: 10000;
+    left: 0;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 4px;
+    border-radius: 10px;
+    background: var(--colorHeadBlue);
+}
+.contaBurgerMenu .burger::before {
+    top: 0;
+    box-shadow: 0 11px 0 var(--colorHeadBlue);
+    transition:
+        box-shadow 0.3s 0.15s,
+        top 0.3s 0.15s,
+        transform 0.3s;
+}
+.contaBurgerMenu .burger::after {
+    bottom: 0;
+    transition:
+        bottom 0.3s 0.15s,
+        transform 0.3s;
+}
+.contaBurgerMenu .burger-checkbox:checked + .burger::before {
+    top: 11px;
+    transform: rotate(45deg);
+    box-shadow: 0 6px 0 rgba(13, 127, 221, 0);
+    transition:
+        box-shadow 0.15s,
+        top 0.3s,
+        transform 0.3s 0.15s;
+}
+.contaBurgerMenu .burger-checkbox:checked + .burger::after {
+    bottom: 11px;
+    transform: rotate(-45deg);
+    transition:
+        bottom 0.3s,
+        transform 0.3s 0.15s;
+}
+
+/* / header css end / */
+
+
+
+/* main css start */
+main {
+    padding: 20px 100px;
+}
+main #firstSection{
+    
+    display: flex;
+   
+    justify-content: space-between;
+    background-color: var(--colorMainSec);
+    color: aliceblue;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+main #firstSection .firstRightImg{
+    position: relative;
+    width: 484px;
+    display: flex;
+    align-items: center;
+}
+
+main #firstSection .firstRightImg .imgAbso{
+    position: absolute;
+    height: 100%;
+    
+}
+main #firstSection .firstRightImg .imgAbso img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+main #firstSection .firstRightImg .imgBox {
+    position: relative;
+    z-index: 100;
+    height: 230px;
+    width: 230px;
+    left: 100px;
+}
+main #firstSection .firstRightImg .imgBox  img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+main #firstSection .firstLeftTextBox{
+    display: flex;
+    flex-direction: column;
+   margin-left: 100px;
+    justify-content: center;
+    gap: 20px;
+}
+
+main #firstSection .firstLeftTextBox h2{
+   
+    font-size: clamp(24px, 6vw, 63px); /* Minimum, dinamik, maksimum boyut */
+}
+main #firstSection .firstLeftTextBox  h3{
+    font-size: clamp(18px, 2vw, 33px); 
+}
+main #firstSection .firstLeftTextBox  span{
+    font-size: clamp(18px, 2vw, 33px); 
+}
+/* main css end */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* / Responsive Design / */
+@media (max-width: 920px) {
+    header .headTop .headerTopConta {
+        justify-content: center;
+        gap: 10px;
+    }
+    header .headTop .headerTopConta .headTopRight {
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    header .headTop .headerTopConta .headTopRight > div {
+        flex-grow: 1;
+    }
+    .contaBurgerMenu {
+        display: block;
+    }
+    header .headBottom .headBottomRight div:nth-child(1) {
+        display: none;
+    }
+    header .headBottom .headBottomRight div:nth-child(2) {
+        display: none;
+    }
+    header .headBottom .headBottomRight div:nth-child(3) {
+        display: none;
+    }
+    .contaBurgerMenu .burger-checkbox:checked + header .headBottom .headBottomRightMobile {
+        visibility: visible;
+    }
+    .burger-checkbox:checked ~ .headBottomRightMobile {
+        left: 0%;
+        z-index: 1000;
+    }
+    main #firstSection{
+        flex-direction: column;
+        height: fit-content;
+    }
+    main #firstSection .firstRightImg .imgAbso {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+    main #firstSection .firstRightImg {
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding: 20px 0px;
+    }
+    main #firstSection .firstRightImg .imgBox{
+        left: 0;
+    }
+    main #firstSection .firstLeftTextBox {
+        display: flex;
+        flex-direction: column;
+        margin-left: 0px;
+        justify-content: center;
+        gap: 20px;
+        padding: 20px;
+        text-align: center;
+    }
+}
+@media (max-width: 472px) {
+    header .headTop .headerTopConta,
+    header .headBottom {
+        padding: 20px;
+    }
+    header .headTop .headerTopConta .headTopRight > div:nth-child(2) {
+        border-right: 0px solid rgb(189, 189, 189);
+        padding-right: 0px;
+    }
+    header .headTop .headerTopConta .headTopRight > div:nth-child(1) {
+        border-right: 0px solid rgb(185, 185, 185);
+        padding-right: 0px;
+    }
+    main {
+        padding: 20px ;
+    }
+}

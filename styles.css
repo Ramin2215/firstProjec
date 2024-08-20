@@ -904,7 +904,7 @@ z-index: 1;
     header .headCategory .activCategory .dropdown-menu {
         background-color: var(--colorBox1);
        bottom: -50px;
-       display: flex;
+     
        flex-direction: column;
     }
     header .headCategory .activCategory .dropdown-menu a {

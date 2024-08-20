@@ -243,6 +243,7 @@ header .headCategory > div {
     justify-content: center;
 }
 header .headCategory .activCategory {
+    cursor: pointer;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -263,7 +264,9 @@ header .headCategory .activCategory .dropdown-menu{
     padding: 5px;
     display: none;
 }
-
+header .headCategory .activCategory label{
+    cursor: pointer;
+}
 #drop{
     display: none;
 }

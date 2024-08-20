@@ -890,6 +890,15 @@ footer .footer__end {
     .footer__app-box-img img {
         width: 100%;
     }
+    header .headCategory .activCategory .dropdown-menu {
+        background-color: var(--colorBox1);
+       bottom: -50px;
+       display: flex;
+       flex-direction: column;
+    }
+    header .headCategory .activCategory .dropdown-menu a {
+        color: white !important;
+    }
 }
 
 @media (max-width: 472px) {
